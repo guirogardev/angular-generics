@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { urlValidator } from 'src/assets/utils/validators';
 
 @Component({
   selector: 'app-generic-form-builder',
@@ -16,9 +17,10 @@ export class GenericFormBuilderComponent implements OnInit {
 
   ngOnInit() {
     let fieldsCtrls = {};
+
     for (let f of this.fields) {
       if (f.type != 'checkbox') {
-        fieldsCtrls[f.name] = new FormControl(f.value || '', Validators.required)
+        fieldsCtrls[f.name] = new FormControl(f.value || '', f.validation)
       } else {
         let opts = {};
         for (let opt of f.options) {

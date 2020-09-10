@@ -6,22 +6,22 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GenericFormBuilderComponent } from './components/generic-form-builder/generic-form-builder.component';
 import { GenericFieldBuilderComponent } from './components/generic-form-builder/generic-field-builder/generic-field-builder.component';
-import { TextBoxComponent } from './components/generic-form-builder/elementos/textbox';
-import { DropDownComponent } from './components/generic-form-builder/elementos/dropdown';
-import { CheckBoxComponent } from './components/generic-form-builder/elementos/checkbox';
-import { FileComponent } from './components/generic-form-builder/elementos/file';
-import { RadioComponent } from './components/generic-form-builder/elementos/radio';
+import { CheckboxComponent } from './components/generic-form-builder/elementos/checkbox/checkbox.component';
+import { DropdownComponent } from './components/generic-form-builder/elementos/dropdown/dropdown.component';
+import { TextboxComponent } from './components/generic-form-builder/elementos/textbox/textbox.component';
+import { FileComponent } from './components/generic-form-builder/elementos/file/file.component';
+import { RadioComponent } from './components/generic-form-builder/elementos/radio/radio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TextBoxComponent,
-    DropDownComponent,
-    CheckBoxComponent,
+    GenericFormBuilderComponent,
+    GenericFieldBuilderComponent,
+    CheckboxComponent,
+    DropdownComponent,
     FileComponent,
     RadioComponent,
-    GenericFormBuilderComponent,
-    GenericFieldBuilderComponent
+    TextboxComponent
   ],
   imports: [
     BrowserModule,

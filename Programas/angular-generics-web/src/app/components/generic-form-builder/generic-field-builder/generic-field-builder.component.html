@@ -4,11 +4,17 @@
       <strong class="text-danger" *ngIf="field.required">*</strong>
     </label>
     <div class="col-md-9" [ngSwitch]="field.type">
-      <textbox *ngSwitchCase="'text'" [field]="field" [form]="form"></textbox>
-      <dropdown *ngSwitchCase="'dropdown'" [field]="field" [form]="form"></dropdown>
-      <checkbox *ngSwitchCase="'checkbox'" [field]="field" [form]="form"></checkbox>
-      <radio *ngSwitchCase="'radio'" [field]="field" [form]="form"></radio>
-      <file *ngSwitchCase="'file'" [field]="field" [form]="form"></file>
-      <div class="alert alert-danger my-1 p-2 fadeInDown animated" *ngIf="!isValid && isDirty">{{field.label}} is required</div>
+        <app-textbox *ngSwitchCase="'text'" [field]="field" [form]="form"></app-textbox>
+        <app-dropdown *ngSwitchCase="'dropdown'" [field]="field" [form]="form"></app-dropdown>
+        <app-checkbox *ngSwitchCase="'checkbox'" [field]="field" [form]="form"></app-checkbox>
+        <app-radio *ngSwitchCase="'radio'" [field]="field" [form]="form"></app-radio>
+        <app-file *ngSwitchCase="'file'" [field]="field" [form]="form"></app-file>
+        <!-- <button *ngSwitchCase="'boton'"></button> -->
+
+        <div class="alert alert-danger my-1 p-2 fadeInDown animated" *ngIf="!isValid && (isDirty || isTouched)">
+            <div *ngFor='let error of getErrors() | keyvalue'>
+                <span>{{ getValidationMessage(error) }}</span>
+            </div>
+        </div>
     </div>
-  </div>
+</div>

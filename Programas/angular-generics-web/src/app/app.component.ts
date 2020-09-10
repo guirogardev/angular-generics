@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { urlValidator, requiredValidator } from 'src/assets/utils/validators';
+import { GenericFormBuilderComponent } from './components/generic-form-builder/generic-form-builder.component';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,8 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  @ViewChild(GenericFormBuilderComponent) formulario: GenericFormBuilderComponent;
   public form: FormGroup;
   unsubcribe: any
 
@@ -17,6 +21,11 @@ export class AppComponent {
       label: 'First Name',
       value: '',
       required: true,
+      validation: [requiredValidator, urlValidator],
+      validationMsg: [
+        {key: 'requiredValidator', message: 'requerido'},
+        {key: 'urlValidator', message: 'urlMal'}
+      ]
     },
     {
       type: 'text',
@@ -95,5 +104,9 @@ export class AppComponent {
 
   ngDestroy() {
     this.unsubcribe();
+  }
+
+  verForm() {
+    console.log(this.formulario.form);
   }
 }

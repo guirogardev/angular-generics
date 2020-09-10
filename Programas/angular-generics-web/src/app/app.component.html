@@ -1,8 +1,10 @@
 <div class="col-sm-12">
-  <div class="card">
-    <div class="card-header">Dynamic Forms</div>
-    <div class="card-body">
-      <app-generic-form-builder [fields]="getFields()"></app-generic-form-builder>
+    <div class="card">
+        <div class="card-header">Dynamic Forms</div>
+        <div class="card-body">
+            <app-generic-form-builder #formulario [fields]="getFields()"></app-generic-form-builder>
+        </div>
     </div>
-  </div>
 </div>
+
+<button (click)="verForm()">verForm()</button>
